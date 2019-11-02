@@ -41,6 +41,7 @@ def movies_with_director_key(name, movies_collection)
     movie_array << movie_hash
     i += 1 
   end
+  p movie_array
   movie_array
   # GOAL: For each Hash in an Array (movies_collection), provide a collection
   # of movies and a directors name to the movie_with_director_name method
