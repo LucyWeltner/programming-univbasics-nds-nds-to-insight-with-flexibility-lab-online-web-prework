@@ -97,6 +97,7 @@ def movies_with_directors_set(source)
         j += 1
       end
     i += 1
+    j = 0
   end
   p movies_array
   
