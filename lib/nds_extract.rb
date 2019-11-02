@@ -41,6 +41,7 @@ def movies_with_director_key(name, movies_collection)
     movie_array << movie_hash
     i += 1 
   end
+  
   p movie_array
   movie_array
   # GOAL: For each Hash in an Array (movies_collection), provide a collection
@@ -90,9 +91,13 @@ def movies_with_directors_set(source)
   j = 0
   while i < source.length do
     movies_array[i] << source[i][:movies]
-    
+      while j < source[i][:movies].length
+        movies_array[i][j][:director_name] = 
+        j += 1
+      end
+    i += 1
   end
-  i += 1
+  
     
     
   # GOAL: For each director, find their :movies Array and stick it in a new Array
