@@ -92,11 +92,12 @@ def movies_with_directors_set(source)
   while i < source.length do
     movies_array[i] << source[i][:movies]
       while j < source[i][:movies].length
-        movies_array[i][j][:director_name] = 
+        movies_array[i][j][:director_name] = source[i][:name]
         j += 1
       end
     i += 1
   end
+  p movies_array
   
     
     
