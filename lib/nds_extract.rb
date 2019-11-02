@@ -1,3 +1,4 @@
+
 # Provided, don't edit
 require 'directors_database'
 
@@ -34,6 +35,14 @@ end
 # Your code after this point
 
 def movies_with_director_key(name, movies_collection)
+  i = 0 
+  movie_array = []
+  while i < movies_collection.length do 
+    movie_hash = movie_with_director_name(name, movies_collection[i])
+    movie_array << movie_hash
+    i += 1 
+  end
+  movie_array
   # GOAL: For each Hash in an Array (movies_collection), provide a collection
   # of movies and a directors name to the movie_with_director_name method
   # and accumulate the returned Array of movies into a new Array that's
@@ -52,6 +61,17 @@ end
 
 
 def gross_per_studio(collection)
+  worldwide_gross_per_studio = {}
+  i = 0 
+  while i < collection.length do 
+    if !worldwide_gross_per_studio[collection[i][:studio]]
+      worldwide_gross_per_studio[collection[i][:studio]] = collection[i][:worldwide_gross]
+    else
+      worldwide_gross_per_studio[collection[i][:studio]] += collection[i][:worldwide_gross]
+    end
+    i += 1
+  end
+  worldwide_gross_per_studio
   # GOAL: Given an Array of Hashes where each Hash represents a movie,
   # return a Hash that includes the total worldwide_gross of all the movies from
   # each studio.
@@ -66,6 +86,21 @@ def gross_per_studio(collection)
 end
 
 def movies_with_directors_set(source)
+  movies_array = []
+  i = 0
+  j = 0
+  while i < source.length do
+    movies_array[i] = source[i][:movies]
+      while j < source[i][:movies].length
+        movies_array[i][j][:director_name] = source[i][:name]
+        j += 1
+      end
+    i += 1
+    j = 0
+  end
+  movies_array
+    
+    
   # GOAL: For each director, find their :movies Array and stick it in a new Array
   #
   # INPUT:
